@@ -4,7 +4,8 @@
              x:Class="UseCamera.MainPage">
 
     <StackLayout>
-        <Button x:Name="permissionButton" Text="許可" Clicked="PermissionButton_Clicked" VerticalOptions="CenterAndExpand" />
+        <Button x:Name="pictureButton" Text="写真撮影" Clicked="pictureButton_Clicked" />
+        <Image x:Name="image" HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" />
     </StackLayout>
 
 </ContentPage>
