@@ -1,32 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using UseSQLite.Models;
+﻿using UseSQLite.Models;
+using UseSQLite.ViewModels;
 using Xamarin.Forms;
 
 namespace UseSQLite.Views
 {
     public partial class NotesPage : ContentPage
     {
+        private NotesViewModel _notesViewModel;
+
         public NotesPage()
         {
             InitializeComponent();
+            BindingContext = _notesViewModel = new NotesViewModel(this.Navigation);
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            _notesViewModel.OnAppearing();
 
             listView.ItemsSource = await App.Database.GetNotesAsync();
-        }
-
-        async void OnNoteAddedClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new NoteEntryPage
-            {
-                BindingContext = new Note()
-            });
         }
 
         async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
