@@ -2,6 +2,7 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:UseSQLite.Behaviors"
     x:Class="UseSQLite.Views.NotesPage"
     Title="Notes">
 
@@ -16,9 +17,10 @@
         <ToolbarItem Text="+" Command="{Binding NoteAddCommand}"  />
     </ContentPage.ToolbarItems>
 
-    <ListView x:Name="listView"
-              Margin="{StaticResource PageMargin}"
-              ItemSelected="OnListViewItemSelected">
+    <ListView x:Name="listView" Margin="{StaticResource PageMargin}" >
+        <ListView.Behaviors>
+            <behaviors:ListViewItemTappedBehavior Command="{Binding ListTappedCommand}" />
+        </ListView.Behaviors>
         <ListView.ItemTemplate>
             <DataTemplate>
                 <TextCell Text="{Binding Text}" TextColor="Black" Detail="{Binding Date}" />

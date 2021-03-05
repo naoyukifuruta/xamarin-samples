@@ -11,6 +11,8 @@ namespace UseSQLite.ViewModels
     {
         public ICommand NoteAddCommand { get; set; }
 
+        public ICommand ListTappedCommand { get; set; }
+
         private INavigation _navigation;
 
         public NotesViewModel(INavigation navigation)
@@ -18,6 +20,8 @@ namespace UseSQLite.ViewModels
             _navigation = navigation;
 
             NoteAddCommand = new Command(async () => await AddNote());
+
+            ListTappedCommand = new Command<Note>(async (note) => await TapListViewItem(note));
         }
 
         public void OnAppearing()
@@ -30,6 +34,14 @@ namespace UseSQLite.ViewModels
             await _navigation.PushAsync(new NoteEntryPage
             {
                 BindingContext = new Note()
+            });
+        }
+
+        private async Task TapListViewItem(Note note)
+        {
+            await _navigation.PushAsync(new NoteEntryPage
+            {
+                BindingContext = note
             });
         }
     }

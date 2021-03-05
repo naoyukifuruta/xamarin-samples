@@ -1,5 +1,4 @@
-﻿using UseSQLite.Models;
-using UseSQLite.ViewModels;
+﻿using UseSQLite.ViewModels;
 using Xamarin.Forms;
 
 namespace UseSQLite.Views
@@ -19,18 +18,8 @@ namespace UseSQLite.Views
             base.OnAppearing();
             _notesViewModel.OnAppearing();
 
+            // TODO: ViewModel
             listView.ItemsSource = await App.Database.GetNotesAsync();
-        }
-
-        async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            if (e.SelectedItem != null)
-            {
-                await Navigation.PushAsync(new NoteEntryPage
-                {
-                    BindingContext = e.SelectedItem as Note
-                });
-            }
         }
     }
 }
