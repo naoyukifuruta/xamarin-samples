@@ -5,6 +5,7 @@
 
     <StackLayout Margin="0,56,0,0" >
         <Button x:Name="pictureButton" Text="写真撮影" Clicked="pictureButton_Clicked" />
+        <Button x:Name="albumButton" Text="写真選択" Clicked="albumButton_Clicked" />
         <Image x:Name="image" HorizontalOptions = "FillAndExpand" VerticalOptions = "FillAndExpand" />
     </StackLayout>
 

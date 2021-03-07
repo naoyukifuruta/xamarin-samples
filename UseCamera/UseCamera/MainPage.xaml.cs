@@ -88,5 +88,27 @@ namespace UseCamera
                 return stream;
             });
         }
+
+        private async void albumButton_Clicked(object sender, System.EventArgs e)
+        {
+            await CrossMedia.Current.Initialize();
+
+            if (!Plugin.Media.CrossMedia.Current.IsPickPhotoSupported)
+            {
+                return;
+            }
+
+            var file = await CrossMedia.Current.PickPhotoAsync();
+            if (file == null)
+            {
+                return;
+            }
+
+            image.Source = ImageSource.FromStream(() =>
+            {
+                var stream = file.GetStream();
+                return stream;
+            });
+        }
     }
 }
