@@ -1,10 +1,15 @@
 ﻿using System;
+using Prism.Navigation;
+
 namespace UsePrism.ViewModels
 {
     public class MainPageViewModel
     {
-        public MainPageViewModel()
+        private INavigationService _navigationService;
+
+        public MainPageViewModel(INavigationService navigationService)
         {
+            _navigationService = navigationService;
         }
     }
 }
