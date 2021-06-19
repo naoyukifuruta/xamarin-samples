@@ -1,4 +1,5 @@
 ﻿using System;
+using UseRealm.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace UseRealm
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new TeamsListPage());
         }
 
         protected override void OnStart()
