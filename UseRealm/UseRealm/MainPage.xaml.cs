@@ -14,5 +14,10 @@ namespace UseRealm
         {
             InitializeComponent();
         }
+
+        public void AddAction(object sender, System.EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
     }
 }
