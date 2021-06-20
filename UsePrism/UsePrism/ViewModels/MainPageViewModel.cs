@@ -3,13 +3,11 @@ using Prism.Navigation;
 
 namespace UsePrism.ViewModels
 {
-    public class MainPageViewModel
+    public class MainPageViewModel : ViewModelBase
     {
-        private INavigationService _navigationService;
-
-        public MainPageViewModel(INavigationService navigationService)
+        public MainPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            _navigationService = navigationService;
+            Title = "Main Page";
         }
     }
 }
