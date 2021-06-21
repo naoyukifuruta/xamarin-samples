@@ -1,6 +1,7 @@
 ﻿using System;
 using Prism.Commands;
 using Prism.Navigation;
+using UsePrism.Views;
 
 namespace UsePrism.ViewModels
 {
@@ -35,7 +36,7 @@ namespace UsePrism.ViewModels
 
         private void PageBShow()
         {
-            NavigationService.NavigateAsync("PageBView");
+            NavigationService.NavigateAsync(nameof(PageBView));
         }
     }
 }
