@@ -11,5 +11,7 @@
 
         <Label Text="{Binding LabelC}"/>
         <Button Text="button c" Command="{Binding ButtonC}"/>
+
+        <Button Text="Next page" Command="{Binding NextCommand}"/>
     </StackLayout>
 </ContentPage>

@@ -17,10 +17,13 @@ namespace UsePrism.ViewModels
         }
 
         public DelegateCommand ButtonC { get; set; }
+        public DelegateCommand NextCommand { get; set; }
 
         public MainPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             ButtonC = new DelegateCommand(SetText);
+            NextCommand = new DelegateCommand(PageBShow);
+
             Title = "Main Page";
             LabelC = "DDD";
         }
@@ -28,6 +31,11 @@ namespace UsePrism.ViewModels
         private void SetText()
         {
             LabelC = "EEE";
+        }
+
+        private void PageBShow()
+        {
+            NavigationService.NavigateAsync("PageBView");
         }
     }
 }
