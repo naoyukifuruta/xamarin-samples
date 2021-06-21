@@ -14,5 +14,11 @@ namespace UsePrism.Views
         {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            ////テストできない
+            MyLabel.Text = "BBB";
+        }
     }
 }
