@@ -26,4 +26,10 @@
 
 - [#13_デバイスごとに処理を切り替える方法](https://anderson02.com/cs/xamarin-prism/xamarin-prism13/)
 
-  
+---
+
+画面遷移時の補足
+
+【Xamarin】Prismで画面遷移とパラメーターの受け渡し ｜ 遊んだ分だけエンジニア
+https://migratory-worker.com/archives/650
+

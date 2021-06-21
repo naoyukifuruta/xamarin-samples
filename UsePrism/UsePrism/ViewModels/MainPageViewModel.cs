@@ -36,7 +36,9 @@ namespace UsePrism.ViewModels
 
         private void PageBShow()
         {
-            NavigationService.NavigateAsync(nameof(PageBView));
+            var param = new NavigationParameters();
+            param.Add("title", "XXXX");
+            NavigationService.NavigateAsync(nameof(PageBView), param);
         }
     }
 }

@@ -8,7 +8,13 @@ namespace UsePrism.ViewModels
     {
         public PageBViewModel(INavigationService navigationService) : base(navigationService)
         {
-            Title = "Page B";
+
+        }
+
+        // 画面遷移時
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            Title = parameters["title"].ToString();
         }
     }
 }
