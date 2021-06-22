@@ -1,6 +1,7 @@
 ﻿using System;
 using Prism.Commands;
 using Prism.Navigation;
+using UsePrism.Conditions;
 using UsePrism.Views;
 
 namespace UsePrism.ViewModels
@@ -37,7 +38,8 @@ namespace UsePrism.ViewModels
         private void PageBShow()
         {
             var param = new NavigationParameters();
-            param.Add("title", "XXXX");
+            param.Add(nameof(PageBCondition), new PageBCondition("XXXX", "TEST"));
+
             NavigationService.NavigateAsync(nameof(PageBView), param);
         }
     }

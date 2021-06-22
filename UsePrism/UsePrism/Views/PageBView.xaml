@@ -5,4 +5,5 @@
              Title="{Binding Title}">
 
     <Label Text="Page b"/>
+    <Label Text="{Binding LabelG}"/>
 </ContentPage>

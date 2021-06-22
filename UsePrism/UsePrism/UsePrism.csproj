@@ -18,5 +18,9 @@
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Conditions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Conditions\" />
   </ItemGroup>
 </Project>
