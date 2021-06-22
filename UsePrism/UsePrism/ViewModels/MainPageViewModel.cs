@@ -2,14 +2,17 @@
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
+using Prism.Mvvm;
 using UsePrism.Conditions;
 using UsePrism.Views;
+using UsePrism.Objects;
 
 namespace UsePrism.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
         private IPageDialogService _pageDialogService;
+        private IDevice _device;
 
         private string _labelC = string.Empty;
         public string LabelC
@@ -25,9 +28,11 @@ namespace UsePrism.ViewModels
         public DelegateCommand NextCommand { get; set; }
         public DelegateCommand MessageCommand { get; set; }
 
-        public MainPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService) : base(navigationService)
+        public MainPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IDevice device)
+            : base(navigationService)
         {
             _pageDialogService = pageDialogService;
+            _device = device;
 
             ButtonC = new DelegateCommand(SetText);
             NextCommand = new DelegateCommand(PageBShow);
@@ -62,6 +67,8 @@ namespace UsePrism.ViewModels
             {
                 // キャンセルの時の処理
             }
+
+            Title = _device.GetDeviceName();
         }
     }
 }
