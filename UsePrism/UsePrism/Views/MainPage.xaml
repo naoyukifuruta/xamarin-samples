@@ -13,5 +13,6 @@
         <Button Text="button c" Command="{Binding ButtonC}"/>
 
         <Button Text="Next page" Command="{Binding NextCommand}"/>
+        <Button Text="message" Command="{Binding MessageCommand}"/>
     </StackLayout>
 </ContentPage>
