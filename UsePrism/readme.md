@@ -33,3 +33,7 @@
 【Xamarin】Prismで画面遷移とパラメーターの受け渡し ｜ 遊んだ分だけエンジニア
 https://migratory-worker.com/archives/650
 
+DependencyServiceの補足
+
+PRISM入門 その6 - DependencyInjection - Qiita
+https://qiita.com/swd/items/6cf142fbe2bbab1a6bca
