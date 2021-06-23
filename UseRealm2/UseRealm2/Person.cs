@@ -1,10 +1,12 @@
 ﻿using System;
+using Realms;
+
 namespace UseRealm2
 {
-    public class Person
+    public class Person : RealmObject
     {
-        public Person()
-        {
-        }
+        public string Name { get; set; }
+
+        public int Age { get; set; }
     }
 }
