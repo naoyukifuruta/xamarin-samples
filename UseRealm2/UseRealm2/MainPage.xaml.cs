@@ -16,6 +16,11 @@ namespace UseRealm2
         {
             InitializeComponent();
 
+            QueryTest2();
+        }
+
+        private void QueryTest1()
+        {
             var realm = Realm.GetInstance();
 
             //Realmデータベースのパスを出力
@@ -59,6 +64,33 @@ namespace UseRealm2
             {
                 realm.Remove(person);
             });
+        }
+
+        private void QueryTest2()
+        {
+            var realm = Realm.GetInstance();
+
+            //Realmデータベースのパスを出力
+            Debug.WriteLine(realm.Config.DatabasePath);
+
+            using (var trans = realm.BeginWrite())
+            {
+                try
+                {
+                    realm.Add(new Person { Name = "山田太郎", Age = 23 });
+                    realm.Add(new Person { Name = "佐藤花子", Age = 18 });
+                    realm.Add(new Person { Name = "田中哲朗", Age = 33 });
+                    //throw new Exception("Fail!");
+                    trans.Commit();
+
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("データ更新に失敗しました。" + ex.Message);
+                    trans.Rollback();
+                }
+
+            }
         }
     }
 }
