@@ -28,12 +28,37 @@ namespace UseRealm2
                 realm.Add(new Person { Name = "田中哲朗", Age = 33 });
             });
 
-            var people = realm.All<Person>().Where(p => p.Age > 20);
+            /** 検索 */
 
-            foreach (var person in people)
+            //var people = realm.All<Person>().Where(p => p.Age > 20);
+            //foreach (var person in people)
+            //{
+            //    Debug.WriteLine("Name=" + person.Name);
+            //}
+
+            /** 更新 */
+
+            //１件目の山田さんのみ抽出
+            var person = realm.All<Person>().Where(p => p.Name.Contains("山田")).FirstOrDefault<Person>();
+
+            //プロパティにセットするだけでデータ更新される
+            realm.Write(() =>
             {
-                Debug.WriteLine("Name=" + person.Name);
+                person.Age = 30;
+            });
+
+            var peoples = realm.All<Person>().Where(p => p.Age > 20);
+            foreach (var per in peoples)
+            {
+                Debug.WriteLine("Name=" + per.Name + " Age=" + per.Age);
             }
+
+            /** 削除 */
+            person = realm.All<Person>().Where(p => p.Name.Contains("山田")).FirstOrDefault<Person>();
+            realm.Write(() =>
+            {
+                realm.Remove(person);
+            });
         }
     }
 }
