@@ -28,6 +28,10 @@
 
 ---
 
+Prism導入時の参考サイト
+Prism Template Packを使わないでXamarin.FormsソリューションにPrismを適用する - Qiita
+https://qiita.com/ats-y/items/f76098612786b3e9cf4a
+
 画面遷移時の補足
 
 【Xamarin】Prismで画面遷移とパラメーターの受け渡し ｜ 遊んだ分だけエンジニア
