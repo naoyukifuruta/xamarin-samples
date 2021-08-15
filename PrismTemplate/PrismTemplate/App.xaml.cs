@@ -1,28 +1,34 @@
-﻿using System;
+﻿using Prism;
+using Prism.Ioc;
+using PrismTemplate.ViewModels;
+using PrismTemplate.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace PrismTemplate
 {
-    public partial class App : Application
+    public partial class App
     {
-        public App()
+        public App() : this(null) { }
+
+        public App(IPlatformInitializer platformInitializer) : base(platformInitializer) { }
+
+        protected override void OnInitialized()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
-        protected override void OnStart()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
         }
 
-        protected override void OnSleep()
-        {
-        }
+        protected override void OnStart() { }
 
-        protected override void OnResume()
-        {
-        }
+        protected override void OnResume() { }
+
+        protected override void OnSleep() { }
     }
 }
