@@ -1,4 +1,4 @@
 # Xamarin Samples
 
-Xamarin.Formsのサンプルプロジェクト。
+Xamarin.Formsのサンプルプロジェクト。  
 よく使うパッケージの導入メモ、検証、テンプレート的なやつ。
